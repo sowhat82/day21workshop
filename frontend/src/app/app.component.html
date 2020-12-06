@@ -1,0 +1,53 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+  <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Name</span>
+        </div>
+        <input ngModel type="text" aria-label="Name" class="form-control" name = "name">
+      </div>    
+  </div>
+
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Response</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input ngModel class="form-check-input" type="radio" name="response" id="response1" value="yes" checked>
+          <label class="form-check-label" for="response1">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input ngModel class="form-check-input" type="radio" name="response" id="response2" value="no">
+          <label class="form-check-label" for="response2">
+            No
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-2 pt-0">Vegetarian</legend>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input ngModel class="form-check-input" type="radio" name="vegetarian" id="vegetarian1" value="yes" checked>
+          <label class="form-check-label" for="vegetarian1">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input ngModel class="form-check-input" type="radio" name="vegetarian" id="vegetarian2" value="no">
+          <label class="form-check-label" for="vegetarian2">
+            No
+          </label>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

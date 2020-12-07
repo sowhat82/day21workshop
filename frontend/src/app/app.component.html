@@ -51,3 +51,20 @@
   
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+<h2>Current Attendees</h2>
+
+<div *ngFor = "let r of result">
+  <div class="row">
+      <div class="col-8">
+          <h6>Name: {{ r.name }}</h6>
+          <p class="">
+              Going: {{ r.response }}
+          </p>
+          <p class="">
+              Vegetarian: {{ r.vegetarian }}
+          </p>
+<hr>
+      </div>
+  </div>
+</div> 

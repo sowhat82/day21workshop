@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
@@ -7,10 +7,19 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'frontend';
+  result = []
 
   constructor(private http: HttpClient){}
+
+  async ngOnInit(): Promise<void> {
+
+     this.result = await this.http.get<any>('/rsvps').toPromise()  
+    
+    console.info(this.result)
+
+  }
 
   async onSubmit(f: NgForm){
 
@@ -28,6 +37,8 @@ export class AppComponent {
 
     // await this.http.post('localhost:3000/rsvp', rsvpData.toString, {headers: httpHeaders}).toPromise()  
     await this.http.post('/rsvp', rsvpData.toString(), {headers: httpHeaders}).toPromise()  
+    this.result = await this.http.get<any>('/rsvps').toPromise()  
+
   }
 
 

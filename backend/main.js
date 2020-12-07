@@ -98,7 +98,7 @@ app.post('/rsvp', async (req, resp) => {
 
 });
         
-
+app.use(express.static ( __dirname + '/frontend'))
 
 // start application
 startApp(app, pool)

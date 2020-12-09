@@ -43,6 +43,8 @@ const app = express()
 
 app.use (cors())
 app.use (express.json())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 
 app.get('/rsvps', async (req, resp) => {
 
@@ -63,9 +65,6 @@ app.get('/rsvps', async (req, resp) => {
 		conn.release()
 	}
 })
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
 
 app.post('/rsvp', async (req, resp) => {
     const name = req.body.name;
